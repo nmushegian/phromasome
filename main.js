@@ -1,3 +1,5 @@
+let intro = "\n\n the phromasome\n  or\n two octaves of the bichromic pitch perception double helix \n  or\n the wizard's new lute\n\n   a work in progress";
+
 let app = new PIXI.Application({width: 800, height: 600, antialias: true});
 let g = new PIXI.Graphics();
 app.stage.addChild(g);
@@ -5,7 +7,6 @@ window.onload = function() {
     document.body.appendChild(app.view);
 }
 
-let intro = "\n\n the phromasome\n  or\n two octaves of the bichromic pitch perception double helix* \n  or\n the wizard's new lute\n\n  * a work in progress";
 let style = new PIXI.TextStyle({
     fontSize: 16,
     fontFamily: ['Courier New', 'monospace'],
@@ -23,8 +24,10 @@ function draw(x, y, color) {
 var synth = new Tone.PolySynth(24, Tone.Synth).toMaster();
 
 let down = {};
+let xOff = 150;
+let yOff = 0;
 function assignKey(key, tone, color, x, y) {
-    draw(x, y, color);
+    draw(x+xOff, y, color);
     window.addEventListener('keypress', function(event) {
         if (!down[event.key]) {
             if (event.key == key) {
@@ -59,15 +62,48 @@ let c = {
     'pPurple': 0xD560E0
 }
 
-assignKey('a', 'C4',  c.eRed, 25, 200);
-assignKey('z', 'C#4', c.pOrange, 50, 230);
-assignKey('s', 'D4',  c.eYellow, 75, 200);
-assignKey('x', 'D#4', c.pGreen,100, 230);
-assignKey('d', 'E4',  c.eBlue,125, 200);
-assignKey('c', 'F4',  c.pPurple,150, 230);
-assignKey('f', 'F#4', c.pRed,175, 200);
-assignKey('v', 'G4',  c.eOrange,200, 230);
-assignKey('g', 'G#4', c.pYellow,225, 200);
-assignKey('b', 'A4',  c.eGreen,250, 230);
-assignKey('h', 'A#4', c.pBlue,275, 200);
-assignKey('n', 'B4',  c.ePurple,300, 230);
+assignKey('a', 'C4',  c.eRed, 25, 400);
+assignKey('z', 'C#4', c.pOrange, 50, 430);
+assignKey('s', 'D4',  c.eYellow, 75, 400);
+assignKey('x', 'D#4', c.pGreen,100, 430);
+assignKey('d', 'E4',  c.eBlue,125, 400);
+assignKey('c', 'F4',  c.pPurple,150, 430);
+assignKey('f', 'F#4', c.pRed,175, 400);
+assignKey('v', 'G4',  c.eOrange,200, 430);
+assignKey('g', 'G#4', c.pYellow,225, 400);
+assignKey('b', 'A4',  c.eGreen,250, 430);
+assignKey('h', 'A#4', c.pBlue,275, 400);
+assignKey('n', 'B4',  c.ePurple,300, 430);
+
+assignKey('j', 'C5',  c.eRed,325, 400);
+assignKey('m', 'C#5',  c.pOrange,350, 430);
+assignKey('k', 'D5',  c.eYellow,375, 400);
+assignKey(',', 'D#5',  c.pGreen,400, 430);
+assignKey('l', 'E5',  c.eBlue,425, 400);
+assignKey('.', 'F5',  c.pPurple,450, 430);
+assignKey(';', 'F#5',  c.pRed,475, 400);
+
+
+//assignKey('1', 'E4',  c.eBlue,-25, 340);
+assignKey('q', 'F4',  c.pPurple,0, 370);
+assignKey('2', 'F#4', c.pRed,25, 340);
+assignKey('w', 'G4',  c.eOrange,50, 370);
+assignKey('3', 'G#4', c.pYellow,75, 340);
+assignKey('e', 'A4',  c.eGreen,100, 370);
+assignKey('4', 'A#4', c.pBlue,125, 340);
+assignKey('r', 'B4',  c.ePurple,150, 370);
+
+assignKey('5', 'C5',  c.eRed,175, 340);
+assignKey('t', 'C#5',  c.pOrange,200, 370);
+assignKey('6', 'D5',  c.eYellow,225, 340);
+assignKey('y', 'D#5',  c.pGreen,250, 370);
+
+assignKey('7', 'E5',  c.eBlue,275, 340);
+assignKey('u', 'F5',  c.pPurple,300, 370);
+assignKey('8', 'F#5', c.pRed,325, 340);
+assignKey('i', 'G5',  c.eOrange,350, 370);
+assignKey('9', 'G#5', c.pYellow,375, 340);
+assignKey('o', 'A5',  c.eGreen,400, 370);
+assignKey('0', 'A#5', c.pBlue,425, 340);
+assignKey('p', 'B5',  c.ePurple,450, 370);
+
