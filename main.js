@@ -9,16 +9,20 @@ window.onload = function() {
 
 let style = new PIXI.TextStyle({
     fontSize: 16,
-    fontFamily: ['Courier New', 'monospace'],
+    fontFamily: 'Courier New',
     fill: '0xffffff'
 });
 let msg = new PIXI.Text(intro, style);
 app.stage.addChild(msg);
 
-function draw(x, y, color) {
+function draw(x, y, color, glyph) {
     g.beginFill(color, 1);
     g.drawCircle(x, y, 10);
     g.endFill();
+    let style2 = new PIXI.TextStyle({fontSize: 12, fontFamily: 'Courier New'});
+    let txt = new PIXI.Text(glyph, style2);
+    app.stage.addChild(txt);
+    txt.x = x-6; txt.y = y-6;
 }
 
 var synth = new Tone.PolySynth(24, Tone.Synth).toMaster();
@@ -27,7 +31,7 @@ let down = {};
 let xOff = 150;
 let yOff = 0;
 function assignKey(key, tone, color, x, y) {
-    draw(x+xOff, y, color);
+    draw(x+xOff, y, color, key);
     window.addEventListener('keypress', function(event) {
         if (!down[event.key]) {
             if (event.key == key) {
