@@ -52,7 +52,7 @@ function assignKey(key, tone, color, x, y) {
 
 // earthtones and pastels
 let c = {
-    'eRed': 0xff0000,
+    'eRed': 0xEA3906,
     'eOrange': 0xE96E1E,
     'eYellow': 0xE3DA09,
     'eGreen': 0x2FCB00,
