@@ -5,6 +5,14 @@ window.onload = function() {
     document.body.appendChild(app.view);
 }
 
+let intro = "\n\n the phromasome\n  or\n two octaves of the bichromic pitch perception double helix* \n  or\n the wizard's new lute\n\n  * a work in progress";
+let style = new PIXI.TextStyle({
+    fontSize: 16,
+    fontFamily: ['Courier New', 'monospace'],
+    fill: '0xffffff'
+});
+let msg = new PIXI.Text(intro, style);
+app.stage.addChild(msg);
 
 function draw(x, y, color) {
     g.beginFill(color, 1);
