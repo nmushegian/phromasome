@@ -32,7 +32,7 @@ let xOff = 150;
 let yOff = 0;
 function assignKey(key, tone, color, x, y) {
     draw(x+xOff, y, color, key);
-    window.addEventListener('keypress', function(event) {
+    window.addEventListener('keydown', function(event) {
         if (!down[event.key]) {
             if (event.key == key) {
                 synth.triggerAttack(tone);
