@@ -1,4 +1,4 @@
-let intro = "\n\n the phromasome\n  or\n two octaves of the bichromic pitch perception double helix \n  or\n the wizard's new lute\n\n   a work in progress";
+let intro = "\n\n the phromasome\n  or\n two octaves of the bichrombic pitch perception double helix \n  or\n the wizard's new lute\n\n   a work in progress";
 
 let app = new PIXI.Application({width: 800, height: 600, antialias: true});
 let g = new PIXI.Graphics();
@@ -17,15 +17,25 @@ app.stage.addChild(msg);
 
 function draw(x, y, color, glyph) {
     g.beginFill(color, 1);
+    var border = 0x666666;
+    // hack
+    if( (y >=400 && x >= 475) || (y < 400 && x >= 325)) {
+        border = 0xdddddd;
+    }
+    // ZEROED
+    g.lineStyle(0, border);
     g.drawCircle(x, y, 10);
     g.endFill();
     let style2 = new PIXI.TextStyle({fontSize: 12, fontFamily: 'Courier New'});
     let txt = new PIXI.Text(glyph, style2);
     app.stage.addChild(txt);
-    txt.x = x-6; txt.y = y-6;
+    txt.x = x-4; txt.y = y-6;
 }
 
-var synth = new Tone.PolySynth(24, Tone.Synth).toMaster();
+
+var synth = new Tone.PolySynth(24, Tone.Synth)
+    .connect(new Tone.Chorus(4, 2, 0.5))
+    .toMaster();
 
 let down = {};
 let xOff = 150;
